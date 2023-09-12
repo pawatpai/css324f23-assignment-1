@@ -51,4 +51,18 @@ def h1(s):
 def h3(s):
     # implement this function
     board, _, _ = s
-    return 0
+    res = 0
+    for i in range(0, 9): # a1 b1 is for pointer
+        a1 = i // 3
+        b1 = i % 3
+        if (board[i] == 0): # a2 b2 is for preferred positon
+            a2 = 2
+            b2 = 2
+        else:
+            a2 = (board[i]-1) // 3
+            b2 = (board[i]-1) % 3
+        if (abs(a1-a2) != 0):
+            res += 1
+        if (abs(b1-b2) != 0):
+            res += 1
+    return res
